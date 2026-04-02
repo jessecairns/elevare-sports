@@ -69,7 +69,7 @@ export const translations = {
         {
           name: "UMUT",
           role: "Founder",
-          bio: "Umut is the founder of Elevare and leads the entire organization from the Istanbul office. With a background as a former footballer, he brings deep on-field experience combined with a strong educational approach, both at academy and professional levels.\n\nAs an educator by background, he has been actively coaching and mentoring players for years, focusing on long-term athlete development and performance. Alongside his work in football, Umut is an experienced business owner and executive in the construction industry.\n\nHis multidisciplinary background allows him to combine sporting insight, education, and leadership in building Elevare’s player-focused ecosystem.",
+          bio: "Umut Vurdu is the founder of Elevare and leads the organization from the Istanbul office. With a background as a former footballer, he brings deep on-field experience combined with a strong educational approach, both at academy and professional levels.\n\nAs an educator by background, he has been actively coaching and mentoring players for years, focusing on long-term athlete development and performance. Alongside his work in football, he is an experienced business owner and executive in the construction industry.\n\nHis multidisciplinary background allows him to combine sporting insight, education, and leadership in building Elevare’s player-focused ecosystem.",
           experience: ["Global Lead (Istanbul Office)", "Former Footballer & Coach", "Construction Industry Executive"]
         },
         {
@@ -117,49 +117,49 @@ export const translations = {
   },
   tr: {
     nav: {
-      home: "Ana Sayfa",
-      about: "Hakkımızda",
-      services: "Hizmetler",
-      network: "Ağımız",
-      team: "Ekibimiz",
-      contact: "İletişim"
+      home: "ANA SAYFA",
+      about: "HAKKIMIZDA",
+      services: "HİZMETLER",
+      network: "AĞIMIZ",
+      team: "EKİBİMİZ",
+      contact: "İLETİŞİM"
     },
     hero: {
       title: "TALENT",
       subtitle: "ELEVATED",
       description: "Seçkin yeteneklere yolculuklarının her adımında hassasiyet ve vizyonla rehberlik ediyoruz.",
-      explore: "Ağımızı Keşfedin",
-      vision: "Vizyonumuz",
-      badge: "Yıldızlarımıza göz atın"
+      explore: "AĞIMIZI KEŞFEDİN",
+      vision: "VİZYONUMUZ",
+      badge: "YILDIZLARIMIZA GÖZ ATIN"
     },
     about: {
-      title: "ELEVARE, VERİ ODAKLI KARAR MEKANİZMALARIYLA OYUNCULARA GÜÇ VEREN KÜRESEL BİR FUTBOL AJANSIDIR.",
+      title: "ELEVARE, VERİ ODAKLİ KARAR MEKANİZMALARİYLA OYUNCULARA GÜÇ VEREN KÜRESEL BİR FUTBOL AJANSIDIR.",
       description: "Sadece temsil etmiyoruz; kariyerleri yönetiyoruz. Sporcu sezgisini, yaşanmış tecrübeyi ve stratejik düşünceyi birleştirerek, oyuncularımızın hem saha içinde hem de saha dışında yanındayız.",
-      readMore: "Devamını Oku",
-      ticker: "Elevare Spor Yönetimi"
+      readMore: "DEVAMINI OKU",
+      ticker: "ELEVARE SPOR YÖNETİMİ"
     },
     services: {
       title: "STRATEJİK",
       subtitle: "UYGULAMA",
       items: [
         {
-          title: "Temsilcilik",
+          title: "TEMSİLCİLİK",
           description: "Kariyerinizle ilgili size özel rehberlik ve yönetim sunuyoruz. Her zaman güvenilir, her zaman ilham verici."
         },
         {
-          title: "Kariyer Stratejisi",
+          title: "KARİYER STRATEJİSİ",
           description: "Sözleşme müzakerelerini ve kariyer geçişlerini hassasiyetle yönetiyor ve danışmanlık yapıyoruz."
         },
         {
-          title: "Performans ve Refah",
+          title: "PERFORMANS VE REFAH",
           description: "Sizinle birlikte en yüksek performans bölgelerinizi belirliyor ve uzun vadeli refahınızı sağlıyoruz."
         },
         {
-          title: "Finansal ve Hukuki Danışmanlık",
+          title: "FİNANSAL VE HUKUKİ DANIŞMANLIK",
           description: "Yatırımlar konusunda stratejik rehberlik sağlıyor ve tüm hukuki süreçlerde yanınızda durarak ticari çıkarlarınızı ve geleceğinizi koruyoruz."
         },
         {
-          title: "Marka ve İmaj",
+          title: "MARKA VE İMAJ",
           description: "Kişisel markanızı sosyal medyada ve ötesinde inşa ediyor, kimliğinizin performansınızı ve uzun vadeli vizyonunuzu yansıtmasını sağlıyoruz."
         }
       ]
@@ -168,30 +168,30 @@ export const translations = {
       title: "KÜRESEL",
       subtitle: "ETKİ",
       description: "3 farklı ülkede stratejik olarak konumlanmış ofislerimizle, geniş küresel ağımız üzerinden sporcularımıza birinci sınıf hizmetler sunuyoruz.",
-      meetTeam: "Ekibimizle Tanışın"
+      meetTeam: "EKİBİMİZLE TANIŞIN"
     },
     team: {
       title: "BİZİM",
       subtitle: "EKİP",
       description: "Kariyerinizi yükseltmeye adanmış eski sporcular, lisanslı menajerler ve endüstri uzmanlarından oluşan multidisipliner bir ekip.",
-      back: "Geri",
+      back: "GERİ",
       peopleBehind: "Arkadaki İsimler",
       members: [
         {
           name: "UMUT",
-          role: "Kurucu",
-          bio: "Umut, Elevare'nin kurucusudur ve tüm organizasyonu İstanbul ofisinden yönetmektedir. Eski bir futbolcu geçmişiyle, hem akademi hem de profesyonel düzeyde derin saha tecrübesini güçlü bir eğitimci yaklaşımıyla birleştiriyor.\n\nEğitimci kimliğiyle, yıllardır oyunculara koçluk ve mentorluk yaparak uzun vadeli sporcu gelişimi ve performansına odaklanmaktadır. Futbolun yanı sıra Umut, inşaat sektöründe deneyimli bir iş sahibi ve yöneticidir.\n\nMultidisipliner geçmişi, Elevare'nin oyuncu odaklı ekosistemini inşa ederken sportif içgörü, eğitim ve liderliği bir araya getirmesini sağlıyor.",
+          role: "KURUCU",
+          bio: "Umut Vurdu, Elevare'nin kurucusu; şirketi İstanbul ofisinden yönetiyor. Eski futbolcu olarak akademi ve profesyonel düzeyde sahada edindiği tecrübeyi, güçlü bir eğitmen bakış açısıyla bir araya getiriyor.\n\nYıllardır oyunculara koçluk ve mentorluk veriyor; uzun vadeli gelişim ve performansa odaklanıyor. Futbolun yanı sıra inşaat sektöründe deneyimli bir iş insanı ve yönetici.\n\nBu çok yönlü birikim, Elevare'nin oyuncu odaklı yapısını sportif içgörü, eğitim ve liderlikle birleştirmesine olanak tanıyor.",
           experience: ["Küresel Lider (İstanbul Ofisi)", "Eski Futbolcu ve Antrenör", "İnşaat Sektörü Yöneticisi"]
         },
         {
-          name: "Baransel",
-          role: "FIFA Lisanslı Menajer",
+          name: "BARANSEL",
+          role: "FIFA LİSANSLI MENAJER",
           bio: "Baransel Soysal, Paris merkezli olarak ağırlıklı olarak Güney Avrupa ve Kuzey Afrika bölgelerinde faaliyet göstermektedir. Güçlü bir uluslararası ağ içinde çalışarak yetenekleri doğru zamanda doğru fırsatlarla buluşturuyor.\n\nGeçmişi, teknoloji sektöründeki iş geliştirme, proje finansmanı ve girişimciliği birleştirerek oyuncu yönetimine yapılandırılmış ve stratejik bir bakış açısı getiriyor.\n\nFutbol dışında, sporcularla yaptığı çalışmalara getirdiği disiplin ve performans odaklı zihniyeti yansıtan rekabetçi bir yelkencidir. Türkçe, İngilizce, Fransızca, İtalyanca ve İspanyolca bilmektedir.",
           experience: ["Paris Merkezli Güney Avrupa ve Kuzey Afrika Sorumlusu", "İş Geliştirme ve Proje Finansmanı", "Çok Dilli: TR, EN, FR, IT, ES"]
         },
         {
-          name: "Yigit",
-          role: "FIFA Lisanslı Menajer",
+          name: "YİĞİT",
+          role: "FIFA LİSANSLI MENAJER",
           bio: "Yiğit Çavuşoğlu, Elevare'nin Kuzey Avrupa operasyonlarını Amsterdam ofisinden yönetmektedir. Güçlü bir Avrupa ağı üzerinden oyuncuları doğru kulüpler ve fırsatlarla buluşturuyor.\n\nGeçmişi, özellikle teknoloji ve lojistik alanlarındaki uluslararası iş ortamlarını kapsayarak oyuncu gelişimine yapılandırılmış ve stratejik bir yaklaşım getiriyor.\n\nAyrıca Elevare'nin scouting ve analitik sistemlerini kurarak organizasyonun veri odaklı karar verme mekanizmasını güçlendirmiştir.",
           experience: ["Kuzey Avrupa Operasyon Sorumlusu", "Scouting ve Analitik Sistem Tasarımcısı", "Uluslararası İş Uzmanı"]
         }
@@ -201,26 +201,26 @@ export const translations = {
       title: "OYUNCU",
       subtitle: "PORTFÖYÜ",
       description: "Yıldızlarımız şu anda gökyüzünden indiriliyor.",
-      subtext: "Lansman için takipte kalın"
+      subtext: "LANSMAN İÇİN TAKİPTE KALIN"
     },
     contact: {
-      title: "Bizimle bir sonraki adımı atın",
-      button: "Konuşalım",
-      modalTitle: "Bize",
-      modalSubtitle: "Ulaşın",
-      firstName: "Adınız",
-      lastName: "Soyadınız",
-      email: "E-posta Adresiniz",
-      message: "Mesajınız",
+      title: "SIRADAKİ ADIMI BİRLİKTE ATALIM",
+      button: "KONUŞALIM",
+      modalTitle: "BİZE",
+      modalSubtitle: "ULAŞIN",
+      firstName: "ADINIZ",
+      lastName: "SOYADINIZ",
+      email: "E-POSTA ADRESİNİZ",
+      message: "MESAJINIZ",
       placeholderFirstName: "Arda",
       placeholderLastName: "Güler",
       placeholderEmail: "arda@realmadrid.com",
       placeholderMessage: "Kariyerinizi yükseltmenize nasıl yardımcı olabiliriz?",
-      send: "Mesaj Gönder",
+      send: "MESAJ GÖNDER",
       offices: {
-        istanbul: "İstanbul Ofisi",
-        paris: "Paris Ofisi",
-        amsterdam: "Amsterdam Ofisi"
+        istanbul: "İSTANBUL OFİSİ",
+        paris: "PARİS OFİSİ",
+        amsterdam: "AMSTERDAM OFİSİ"
       },
       privacy: "Gizlilik Politikası",
       terms: "Şartlar ve Koşullar"
@@ -291,7 +291,7 @@ export const translations = {
         {
           name: "UMUT",
           role: "Fondateur",
-          bio: "Umut est le fondateur d'Elevare et dirige l'ensemble de l'organisation depuis le bureau d'Istanbul. Ancien footballeur, il apporte une profonde expérience du terrain combinée à une solide approche pédagogique, tant au niveau académique que professionnel.\n\nÉducateur de formation, il coache et mentore des joueurs depuis des années, se concentrant sur le développement et la performance des athlètes à long terme. Parallèlement à son travail dans le football, Umut est un chef d'entreprise et un cadre expérimenté dans le secteur de la construction.\n\nSon parcours multidisciplinaire lui permet de combiner vision sportive, éducation et leadership pour construire l'écosystème d'Elevare centré sur le joueur.",
+          bio: "Umut Vurdu a fondé Elevare et pilote l'organisation depuis le bureau d'Istanbul. Ancien footballeur, il allie une expérience de terrain solide à une exigence pédagogique — du centre de formation au plus haut niveau.\n\nÉducateur dans l'âme, il accompagne et mentor des joueurs depuis des années, avec une vision long terme du développement et de la performance. En parallèle du football, il exerce comme entrepreneur et dirigeant dans le bâtiment.\n\nCe parcours pluriel nourrit un projet commun : un écosystème Elevare tourné vers le joueur, où expertise sportive, pédagogie et leadership se rencontrent.",
           experience: ["Responsable Mondial (Bureau d'Istanbul)", "Ancien Footballeur et Entraîneur", "Cadre dans le Secteur de la Construction"]
         },
         {

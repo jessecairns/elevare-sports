@@ -76,7 +76,7 @@ const TEAM = [
     name: "UMUT",
     role: "Founder",
     image: "https://lh3.googleusercontent.com/d/1c1ACfRCcisQCt0Ddy1-BOfB2yVb2DS-9",
-    bio: "Umut is the founder of Elevare and leads the entire organization from the Istanbul office. With a background as a former footballer, he brings deep on-field experience combined with a strong educational approach, both at academy and professional levels.\n\nAs an educator by background, he has been actively coaching and mentoring players for years, focusing on long-term athlete development and performance. Alongside his work in football, Umut is an experienced business owner and executive in the construction industry.\n\nHis multidisciplinary background allows him to combine sporting insight, education, and leadership in building Elevare’s player-focused ecosystem.",
+    bio: "Umut Vurdu is the founder of Elevare and leads the organization from the Istanbul office. With a background as a former footballer, he brings deep on-field experience combined with a strong educational approach, both at academy and professional levels.\n\nAs an educator by background, he has been actively coaching and mentoring players for years, focusing on long-term athlete development and performance. Alongside his work in football, he is an experienced business owner and executive in the construction industry.\n\nHis multidisciplinary background allows him to combine sporting insight, education, and leadership in building Elevare’s player-focused ecosystem.",
     experience: ["Global Lead (Istanbul Office)", "Former Footballer & Coach", "Construction Industry Executive"]
   },
   {
@@ -138,6 +138,17 @@ export default function App() {
   const [pendingHomeSection, setPendingHomeSection] = useState<string | null>(null);
 
   const t = translations[lang];
+
+  const displayTrack = lang === "en" ? "tracking-tighter" : "tracking-tight";
+  const heroLead = lang === "en" ? "leading-[0.85]" : "leading-[0.92]";
+  const displayLead = lang === "en" ? "leading-[0.85]" : "leading-[0.9]";
+  const displayLeadLoose = lang === "en" ? "leading-[0.9]" : "leading-[0.96]";
+  const teamHeadLead = lang === "en" ? "leading-[0.8]" : "leading-[0.88]";
+  const portfolioMidLead = lang === "en" ? "leading-tight" : "leading-snug";
+  const modalHeadLead = lang === "en" ? "leading-none" : "leading-[1.06]";
+
+  /** CSS `uppercase` breaks Turkish İ/ı; skip when copy is stored as proper Turkish caps. */
+  const cssUppercase = lang === "tr" ? "" : "uppercase";
 
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -316,7 +327,7 @@ export default function App() {
           </motion.div>
 
           <div className="hidden md:flex items-center gap-12">
-            <div className="flex gap-12 text-[11px] font-bold uppercase tracking-[0.3em]">
+            <div className={`flex gap-12 text-[11px] font-bold ${cssUppercase} tracking-[0.3em]`}>
               {[
                 { id: "home", label: t.nav.home },
                 { id: "about", label: t.nav.about },
@@ -348,7 +359,7 @@ export default function App() {
               onClick={scrollToContact}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="hidden md:block bg-accent text-primary px-8 py-3 rounded-full font-black text-[11px] uppercase shadow-lg shadow-accent/20 hover:bg-white transition-all duration-300"
+              className={`hidden md:block bg-accent text-primary px-8 py-3 rounded-full font-black text-[11px] ${cssUppercase} shadow-lg shadow-accent/20 hover:bg-white transition-all duration-300`}
             >
               {t.nav.contact}
             </motion.button>
@@ -434,7 +445,7 @@ export default function App() {
               <a
                 key={item.id}
                 href={item.id === "contact" ? "#contact" : item.id === "team" ? "#team" : `#${item.id}`}
-                className="text-4xl font-black uppercase tracking-tighter hover:text-accent transition-colors"
+                className={`text-4xl font-black ${cssUppercase} tracking-tighter hover:text-accent transition-colors`}
                 onClick={(e) => {
                   if (item.id === "contact") {
                     e.preventDefault();
@@ -467,7 +478,7 @@ export default function App() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="text-5xl md:text-7xl xl:text-8xl font-black uppercase tracking-tighter leading-[0.8] mb-8">
+              <h1 className={`text-5xl md:text-7xl xl:text-8xl font-black ${cssUppercase} ${displayTrack} ${teamHeadLead} mb-8`}>
                 {t.team.title}<br /><span className="text-accent italic">{t.team.subtitle}</span>
               </h1>
               <p className="text-gray-500 text-xs md:text-sm font-medium max-w-xs leading-relaxed">
@@ -499,8 +510,8 @@ export default function App() {
                 </div>
                 
                 <div className="flex-grow overflow-hidden flex flex-col">
-                  <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tighter mb-1">{member.name}</h3>
-                  <p className="text-accent font-black uppercase text-[9px] tracking-[0.2em] mb-6">{member.role}</p>
+                  <h3 className={`text-2xl md:text-3xl font-black ${cssUppercase} tracking-tighter mb-1`}>{member.name}</h3>
+                  <p className={`text-accent font-black ${cssUppercase} text-[9px] tracking-[0.2em] mb-6`}>{member.role}</p>
                   
                   <div className="flex-grow overflow-y-auto pr-4 custom-scrollbar mb-8">
                     <p className="text-gray-600 leading-relaxed text-xs md:text-sm font-medium text-left whitespace-pre-line">
@@ -532,7 +543,7 @@ export default function App() {
           <motion.button 
             onClick={goToHome}
             whileHover={{ x: -5 }}
-            className="flex items-center gap-3 text-accent font-black uppercase text-[11px] tracking-[0.3em] hover:opacity-80 transition-all"
+            className={`flex items-center gap-3 text-accent font-black ${cssUppercase} text-[11px] tracking-[0.3em] hover:opacity-80 transition-all`}
           >
             <ArrowLeft className="w-5 h-5" /> {t.team.back}
           </motion.button>
@@ -545,7 +556,7 @@ export default function App() {
             transition={{ duration: 0.8 }}
             className="mb-8 md:mb-12"
           >
-            <h1 className="text-5xl md:text-[8vw] font-black uppercase tracking-tighter leading-[0.85]">
+            <h1 className={`text-5xl md:text-[8vw] font-black ${cssUppercase} ${displayTrack} ${displayLead}`}>
               {t.portfolio.title}<br /><span className="text-accent">{t.portfolio.subtitle}</span>
             </h1>
           </motion.div>
@@ -570,11 +581,11 @@ export default function App() {
               <Telescope className="w-24 h-24 md:w-32 md:h-32 text-accent opacity-20" />
             </motion.div>
             
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter max-w-3xl mb-6 leading-tight">
+            <h2 className={`text-3xl md:text-5xl font-black ${cssUppercase} ${displayTrack} max-w-3xl mb-6 ${portfolioMidLead}`}>
               {t.portfolio.description}
             </h2>
             
-            <div className="flex items-center gap-6 text-accent font-black uppercase tracking-[0.4em] text-xs md:text-sm">
+            <div className={`flex items-center gap-6 text-accent font-black ${cssUppercase} tracking-[0.4em] text-xs md:text-sm`}>
               <Rocket className="w-5 h-5 md:w-6 md:h-6 animate-bounce" />
               <span>{t.portfolio.subtext}</span>
             </div>
@@ -626,7 +637,7 @@ export default function App() {
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           className="relative z-10 max-w-5xl pt-12 md:pt-20"
         >
-          <h1 className="text-5xl sm:text-6xl md:text-[11rem] font-black leading-[0.85] tracking-tighter uppercase">
+          <h1 className={`text-5xl sm:text-6xl md:text-[11rem] font-black ${heroLead} ${displayTrack} ${cssUppercase}`}>
             {t.hero.title}<br />
             <span className="text-accent italic">{t.hero.subtitle}</span>
           </h1>
@@ -642,7 +653,7 @@ export default function App() {
                 const networkSection = document.getElementById("network");
                 if (networkSection) networkSection.scrollIntoView({ behavior: "smooth" });
               }}
-              className="bg-accent text-primary px-12 py-5 rounded-full font-black text-xs uppercase shadow-xl shadow-accent/20 hover:bg-white transition-all duration-300 w-full sm:w-auto"
+              className={`bg-accent text-primary px-12 py-5 rounded-full font-black text-xs ${cssUppercase} shadow-xl shadow-accent/20 hover:bg-white transition-all duration-300 w-full sm:w-auto`}
             >
               {t.hero.explore}
             </motion.button>
@@ -653,7 +664,7 @@ export default function App() {
                 const aboutSection = document.getElementById("about");
                 if (aboutSection) aboutSection.scrollIntoView({ behavior: "smooth" });
               }}
-              className="border-2 border-white/20 hover:border-accent px-12 py-5 rounded-full font-black text-xs uppercase backdrop-blur-sm transition-all duration-300 w-full sm:w-auto"
+              className={`border-2 border-white/20 hover:border-accent px-12 py-5 rounded-full font-black text-xs ${cssUppercase} backdrop-blur-sm transition-all duration-300 w-full sm:w-auto`}
             >
               {t.hero.vision}
             </motion.button>
@@ -676,7 +687,7 @@ export default function App() {
             ></motion.div>
             <div className="text-center flex flex-col items-center">
               <Sparkles className="w-12 h-12 text-accent mb-2 animate-pulse group-hover:scale-125 transition-transform" />
-              <p className="text-[10px] font-black uppercase tracking-[0.2em] text-accent">{t.hero.badge}</p>
+              <p className={`text-[10px] font-black ${cssUppercase} tracking-[0.2em] text-accent`}>{t.hero.badge}</p>
             </div>
           </motion.div>
         </div>
@@ -693,7 +704,7 @@ export default function App() {
               transition={{ duration: 0.8 }}
               className="relative z-10"
             >
-              <h2 className="text-3xl md:text-6xl xl:text-7xl font-black uppercase leading-[0.9] tracking-tighter mb-6 md:mb-10">
+              <h2 className={`text-3xl md:text-6xl xl:text-7xl font-black ${cssUppercase} ${displayLeadLoose} ${displayTrack} mb-6 md:mb-10`}>
                 {t.about.title}
               </h2>
               <p className="text-base md:text-xl text-white/70 max-w-xl mb-8 md:mb-12 leading-relaxed font-medium">
@@ -702,7 +713,7 @@ export default function App() {
               <motion.button 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-accent text-primary px-12 md:px-16 py-4 md:py-5 rounded-full font-black text-xs md:text-sm uppercase shadow-xl shadow-accent/20 hover:bg-white transition-all duration-300 w-full sm:w-auto"
+                className={`bg-accent text-primary px-12 md:px-16 py-4 md:py-5 rounded-full font-black text-xs md:text-sm ${cssUppercase} shadow-xl shadow-accent/20 hover:bg-white transition-all duration-300 w-full sm:w-auto`}
               >
                 {t.about.readMore}
               </motion.button>
@@ -733,7 +744,7 @@ export default function App() {
         <div className="py-6 md:py-8 bg-white border-y border-primary/5 overflow-hidden flex items-center">
           <div className="flex items-center whitespace-nowrap animate-infinite-scroll">
             {[...Array(10)].map((_, i) => (
-              <span key={i} className="text-primary/10 text-3xl md:text-4xl font-black uppercase mx-12 tracking-tighter leading-none">
+              <span key={i} className={`text-primary/10 text-3xl md:text-4xl font-black ${cssUppercase} mx-12 ${displayTrack} leading-none`}>
                 {t.about.ticker}
               </span>
             ))}
@@ -744,7 +755,7 @@ export default function App() {
       {/* Services Section */}
       <section id="services" className="min-h-screen flex flex-col bg-dark-blue overflow-hidden scroll-mt-24 px-6 md:px-20 pt-16 md:pt-20 pb-16 md:pb-20">
         <div className="mb-10 md:mb-12">
-          <h2 className="text-4xl md:text-7xl font-black uppercase leading-[0.85] tracking-tighter">
+          <h2 className={`text-4xl md:text-7xl font-black ${cssUppercase} ${displayLead} ${displayTrack}`}>
             {t.services.title}<br /><span className="text-accent">{t.services.subtitle}</span>
           </h2>
         </div>
@@ -767,7 +778,7 @@ export default function App() {
                 <div className="mb-5 xl:mb-6 transform group-hover:scale-110 group-hover:-translate-y-1 transition-transform duration-500">
                   {React.cloneElement(SERVICES[i].icon as React.ReactElement, { className: "w-10 h-10 text-accent" })}
                 </div>
-                <h3 className="text-xl md:text-2xl font-black uppercase mb-3 tracking-tight flex items-center">
+                <h3 className={`text-xl md:text-2xl font-black ${cssUppercase} mb-3 tracking-tight flex items-center`}>
                   {service.title}
                 </h3>
                 <p className="text-sm md:text-base text-white/60 leading-relaxed max-w-md font-medium">{service.description}</p>
@@ -782,7 +793,7 @@ export default function App() {
         <div className="flex-grow flex flex-col px-6 md:px-20 pt-16 md:pt-20 pb-16 md:pb-20 min-h-0">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-10 md:mb-12">
             <div className="max-w-3xl">
-              <h2 className="text-4xl md:text-7xl font-black uppercase leading-[0.85] tracking-tighter">
+              <h2 className={`text-4xl md:text-7xl font-black ${cssUppercase} ${displayLead} ${displayTrack}`}>
                 {t.network.title}<br /><span className="text-accent">{t.network.subtitle}</span>
               </h2>
               <p className="text-white/70 mt-4 md:mt-6 max-w-2xl text-base md:text-xl font-medium border-l-4 border-accent pl-6 leading-relaxed">
@@ -794,7 +805,7 @@ export default function App() {
               onClick={() => setView("team")}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-accent text-primary px-10 py-4 rounded-full font-black text-xs uppercase shadow-2xl shadow-accent/20 hover:bg-white transition-all duration-300 flex items-center gap-3 animate-pulse-glow whitespace-nowrap"
+              className={`bg-accent text-primary px-10 py-4 rounded-full font-black text-xs ${cssUppercase} shadow-2xl shadow-accent/20 hover:bg-white transition-all duration-300 flex items-center gap-3 animate-pulse-glow whitespace-nowrap`}
             >
               {t.network.meetTeam} <ArrowRight className="w-5 h-5" />
             </motion.button>
@@ -818,7 +829,7 @@ export default function App() {
                 <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/20 to-transparent opacity-90"></div>
                 
                 <div className="absolute inset-0 flex flex-col justify-end items-center p-6 md:p-8">
-                  <h4 className="text-3xl md:text-4xl font-black uppercase text-white tracking-tighter text-center group-hover:text-accent transition-colors duration-500">{loc.city}</h4>
+                  <h4 className={`text-3xl md:text-4xl font-black uppercase text-white ${displayTrack} text-center group-hover:text-accent transition-colors duration-500`}>{loc.city}</h4>
                   <div className="w-0 group-hover:w-16 h-1 bg-accent transition-all duration-500 mt-4 rounded-full"></div>
                 </div>
               </motion.div>
@@ -831,14 +842,14 @@ export default function App() {
       <footer id="contact" className="min-h-screen flex flex-col justify-center bg-white text-primary py-24 px-6 md:px-20 scroll-mt-24">
         <div className="flex flex-col md:flex-row justify-between items-start gap-16 md:gap-32 mb-6 md:mb-8">
           <div className="max-w-4xl">
-            <h2 className="text-5xl md:text-[8rem] font-black uppercase leading-[0.85] tracking-tighter">
+            <h2 className={`text-5xl md:text-[8rem] font-black ${cssUppercase} ${displayLead} ${displayTrack}`}>
               {t.contact.title}
             </h2>
             <motion.button 
               onClick={() => setIsContactModalOpen(true)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="mt-12 md:mt-16 bg-primary text-white px-12 md:px-16 py-5 md:py-7 rounded-full font-black text-xs md:text-sm uppercase hover:bg-accent hover:text-primary transition-all duration-300 shadow-2xl w-full sm:w-auto"
+              className={`mt-12 md:mt-16 bg-primary text-white px-12 md:px-16 py-5 md:py-7 rounded-full font-black text-xs md:text-sm ${cssUppercase} hover:bg-accent hover:text-primary transition-all duration-300 shadow-2xl w-full sm:w-auto`}
             >
               {t.contact.button}
             </motion.button>
@@ -848,15 +859,15 @@ export default function App() {
             <div className="text-sm font-bold space-y-4">
               <div className="space-y-6">
                 <div className="group">
-                  <span className="opacity-40 text-[10px] uppercase tracking-widest block mb-2">{t.contact.offices.istanbul}</span>
+                  <span className={`opacity-40 text-[10px] ${cssUppercase} tracking-widest block mb-2`}>{t.contact.offices.istanbul}</span>
                   <p className="text-xl md:text-2xl font-black">+90 532 310 77 07</p>
                 </div>
                 <div className="group">
-                  <span className="opacity-40 text-[10px] uppercase tracking-widest block mb-2">{t.contact.offices.paris}</span>
+                  <span className={`opacity-40 text-[10px] ${cssUppercase} tracking-widest block mb-2`}>{t.contact.offices.paris}</span>
                   <p className="text-xl md:text-2xl font-black">+33 7 61 94 88 80</p>
                 </div>
                 <div className="group">
-                  <span className="opacity-40 text-[10px] uppercase tracking-widest block mb-2">{t.contact.offices.amsterdam}</span>
+                  <span className={`opacity-40 text-[10px] ${cssUppercase} tracking-widest block mb-2`}>{t.contact.offices.amsterdam}</span>
                   <p className="text-xl md:text-2xl font-black">+31 6 29425137</p>
                 </div>
               </div>
@@ -883,7 +894,7 @@ export default function App() {
         <div className="w-full h-20 md:h-24 relative overflow-hidden border-y border-primary/5 flex items-center bg-white mb-12">
           <div className="flex items-center whitespace-nowrap animate-marquee">
             {[...Array(10)].map((_, i) => (
-              <span key={i} className="text-accent text-5xl md:text-7xl font-black italic uppercase opacity-20 mx-12 tracking-tighter leading-none">
+              <span key={i} className={`text-accent text-5xl md:text-7xl font-black italic uppercase opacity-20 mx-12 ${displayTrack} leading-none`}>
                 ///////// ELEVARE SPORTS MANAGEMENT /////////
               </span>
             ))}
@@ -925,7 +936,7 @@ export default function App() {
               </motion.button>
 
               <div className="p-12 md:p-20">
-                <h3 className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-primary mb-10 leading-none">
+                <h3 className={`text-5xl md:text-7xl font-black ${cssUppercase} ${displayTrack} text-primary mb-10 ${modalHeadLead}`}>
                   {t.contact.modalTitle} <span className="text-accent italic">{t.contact.modalSubtitle}</span>
                 </h3>
                 
@@ -941,7 +952,7 @@ export default function App() {
                 >
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="space-y-3">
-                      <label className="text-[11px] font-black uppercase tracking-[0.3em] opacity-40 ml-1">{t.contact.firstName}</label>
+                      <label className={`text-[11px] font-black ${cssUppercase} tracking-[0.3em] opacity-40 ml-1`}>{t.contact.firstName}</label>
                       <input 
                         required
                         type="text" 
@@ -952,7 +963,7 @@ export default function App() {
                       />
                     </div>
                     <div className="space-y-3">
-                      <label className="text-[11px] font-black uppercase tracking-[0.3em] opacity-40 ml-1">{t.contact.lastName}</label>
+                      <label className={`text-[11px] font-black ${cssUppercase} tracking-[0.3em] opacity-40 ml-1`}>{t.contact.lastName}</label>
                       <input 
                         required
                         type="text" 
@@ -965,7 +976,7 @@ export default function App() {
                   </div>
 
                   <div className="space-y-3">
-                    <label className="text-[11px] font-black uppercase tracking-[0.3em] opacity-40 ml-1">{t.contact.email}</label>
+                    <label className={`text-[11px] font-black ${cssUppercase} tracking-[0.3em] opacity-40 ml-1`}>{t.contact.email}</label>
                     <input 
                       required
                       type="email" 
@@ -977,7 +988,7 @@ export default function App() {
                   </div>
 
                   <div className="space-y-3">
-                    <label className="text-[11px] font-black uppercase tracking-[0.3em] opacity-40 ml-1">{t.contact.message}</label>
+                    <label className={`text-[11px] font-black ${cssUppercase} tracking-[0.3em] opacity-40 ml-1`}>{t.contact.message}</label>
                     <textarea 
                       required
                       rows={4}
@@ -992,7 +1003,7 @@ export default function App() {
                     type="submit"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full bg-primary text-white py-7 rounded-full font-black uppercase tracking-[0.3em] text-sm hover:bg-accent hover:text-primary transition-all duration-500 shadow-2xl shadow-primary/20"
+                    className={`w-full bg-primary text-white py-7 rounded-full font-black ${cssUppercase} tracking-[0.3em] text-sm hover:bg-accent hover:text-primary transition-all duration-500 shadow-2xl shadow-primary/20`}
                   >
                     {t.contact.send}
                   </motion.button>
