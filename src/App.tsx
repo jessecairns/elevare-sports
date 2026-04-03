@@ -354,7 +354,15 @@ export default function App() {
             </div>
           </div>
 
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-2 sm:gap-3 md:gap-6 shrink-0">
+            <motion.button
+              onClick={scrollToContact}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className={`md:hidden text-[9px] font-black ${cssUppercase} tracking-widest text-accent border border-accent/60 px-3 py-2 rounded-full hover:bg-accent hover:text-primary transition-colors`}
+            >
+              {t.nav.contact}
+            </motion.button>
             <motion.button
               onClick={scrollToContact}
               whileHover={{ scale: 1.05 }}
@@ -416,9 +424,9 @@ export default function App() {
             initial={{ opacity: 0, x: "100%" }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
-            className="fixed inset-0 z-40 bg-primary/98 backdrop-blur-xl flex flex-col items-center justify-center gap-6 md:hidden"
+            className="fixed inset-0 z-40 bg-primary/98 backdrop-blur-xl flex flex-col items-center justify-start sm:justify-center gap-4 sm:gap-6 md:hidden overflow-y-auto py-16 px-4 pb-24"
           >
-            <div className="flex items-center gap-4 mb-8 bg-white/5 rounded-full p-2 border border-white/10">
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mb-4 sm:mb-8 bg-white/5 rounded-full p-2 border border-white/10 max-w-full">
               {(['en', 'tr', 'fr'] as Language[]).map((l) => (
                 <button
                   key={l}
@@ -445,7 +453,7 @@ export default function App() {
               <a
                 key={item.id}
                 href={item.id === "contact" ? "#contact" : item.id === "team" ? "#team" : `#${item.id}`}
-                className={`text-4xl font-black ${cssUppercase} tracking-tighter hover:text-accent transition-colors`}
+                className={`text-2xl sm:text-4xl font-black ${cssUppercase} tracking-tight sm:tracking-tighter hover:text-accent transition-colors text-center max-w-[90vw]`}
                 onClick={(e) => {
                   if (item.id === "contact") {
                     e.preventDefault();
@@ -467,12 +475,12 @@ export default function App() {
 
   if (view === "team") {
     return (
-      <div className="h-screen bg-white text-primary flex flex-col overflow-hidden selection:bg-accent selection:text-primary">
+      <div className="min-h-dvh lg:h-dvh lg:overflow-hidden bg-white text-primary flex flex-col selection:bg-accent selection:text-primary">
         {renderHomeChrome("team")}
 
-        <div className="flex-grow grid grid-cols-1 lg:grid-cols-12 min-h-0 overflow-hidden pt-24 md:pt-28">
+        <div className="flex-1 flex flex-col lg:grid lg:grid-cols-12 lg:min-h-0 lg:max-h-[calc(100dvh-4rem)] lg:overflow-hidden pt-24 md:pt-28 pb-8 lg:pb-0">
           {/* Left Side: Editorial Header */}
-          <div className="lg:col-span-3 flex flex-col justify-center px-6 md:px-10 border-r border-primary/5 bg-primary/5">
+          <div className="lg:col-span-3 flex flex-col justify-center px-6 md:px-10 py-8 lg:py-0 border-b lg:border-b-0 lg:border-r border-primary/5 bg-primary/5 shrink-0">
             <motion.div 
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -488,14 +496,14 @@ export default function App() {
           </div>
 
           {/* Right Side: Team Grid */}
-          <div className="lg:col-span-9 grid grid-cols-1 md:grid-cols-3 h-full overflow-hidden">
+          <div className="lg:col-span-9 grid grid-cols-1 md:grid-cols-3 lg:h-full lg:min-h-0 lg:overflow-y-auto">
             {t.team.members.map((member, i) => (
               <motion.div 
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1, duration: 0.6 }}
-                className={`flex flex-col p-6 md:p-8 h-full border-r border-primary/5 last:border-r-0 ${i % 2 === 0 ? 'bg-white' : 'bg-primary/[0.02]'}`}
+                className={`flex flex-col p-6 md:p-8 min-h-0 lg:h-full border-b border-primary/5 last:border-b-0 md:border-b-0 md:border-r md:border-primary/5 md:last:border-r-0 ${i % 2 === 0 ? 'bg-white' : 'bg-primary/[0.02]'}`}
               >
                 <div className="relative mb-8 group w-40 h-40 md:w-48 md:h-48 shrink-0 mx-auto md:mx-0">
                   <div className="absolute inset-0 bg-accent rounded-full translate-x-3 translate-y-3 -z-10 opacity-20 group-hover:translate-x-4 group-hover:translate-y-4 transition-transform"></div>
@@ -509,11 +517,11 @@ export default function App() {
                   </div>
                 </div>
                 
-                <div className="flex-grow overflow-hidden flex flex-col">
+                <div className="flex-1 min-h-0 flex flex-col lg:overflow-hidden">
                   <h3 className={`text-2xl md:text-3xl font-black ${cssUppercase} tracking-tighter mb-1`}>{member.name}</h3>
                   <p className={`text-accent font-black ${cssUppercase} text-[9px] tracking-[0.2em] mb-6`}>{member.role}</p>
                   
-                  <div className="flex-grow overflow-y-auto pr-4 custom-scrollbar mb-8">
+                  <div className="flex-1 min-h-[12rem] max-h-[55vh] lg:max-h-none lg:overflow-y-auto pr-4 custom-scrollbar mb-8">
                     <p className="text-gray-600 leading-relaxed text-xs md:text-sm font-medium text-left whitespace-pre-line">
                       {member.bio}
                     </p>
@@ -531,7 +539,7 @@ export default function App() {
 
   if (view === "portfolio") {
     return (
-      <div className="h-screen bg-primary text-white p-6 md:p-12 flex flex-col selection:bg-accent selection:text-primary overflow-hidden">
+      <div className="min-h-dvh bg-primary text-white p-6 md:p-12 flex flex-col selection:bg-accent selection:text-primary overflow-y-auto">
         <nav className="flex justify-between items-center mb-8 md:mb-12">
           <motion.div 
             className="text-2xl md:text-3xl font-black tracking-tighter cursor-pointer" 
@@ -549,7 +557,7 @@ export default function App() {
           </motion.button>
         </nav>
 
-        <div className="flex-1 flex flex-col justify-center">
+        <div className="flex-1 flex flex-col justify-center py-8 md:py-0 min-h-0">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -619,8 +627,8 @@ export default function App() {
 
       {renderHomeChrome("home")}
 
-      {/* Hero Section */}
-      <header className="relative h-screen flex flex-col justify-center px-6 md:px-20 overflow-hidden">
+      {/* Hero Section — pt offsets fixed nav (no layout flow); avoids huge h1 sitting under the bar */}
+      <header className="relative min-h-screen flex flex-col justify-center px-6 md:px-20 overflow-hidden pt-24 md:pt-28 lg:pt-32 pb-12 md:pb-16">
         <div className="absolute inset-0 z-0">
           <img 
             alt="1990s Football Celebration" 
@@ -635,7 +643,7 @@ export default function App() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="relative z-10 max-w-5xl pt-12 md:pt-20"
+          className="relative z-10 max-w-5xl pt-4 md:pt-8"
         >
           <h1 className={`text-5xl sm:text-6xl md:text-[11rem] font-black ${heroLead} ${displayTrack} ${cssUppercase}`}>
             {t.hero.title}<br />
@@ -671,23 +679,24 @@ export default function App() {
           </div>
         </motion.div>
 
-        {/* Spinning Badge */}
-        <div className="absolute right-10 md:right-20 bottom-20 hidden lg:block">
+        {/* Portfolio badge — compact on small screens (desktop keeps corner placement) */}
+        <div className="relative z-10 mt-10 flex justify-center lg:absolute lg:bottom-20 lg:right-8 xl:right-20 lg:mt-0 lg:justify-end">
           <motion.div 
-            className="relative w-48 h-48 flex items-center justify-center cursor-pointer group"
+            className="relative w-36 h-36 lg:w-48 lg:h-48 flex items-center justify-center cursor-pointer group"
             onMouseEnter={() => setIsBadgeHovered(true)}
             onMouseLeave={() => setIsBadgeHovered(false)}
             onClick={() => setView("portfolio")}
             whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.98 }}
           >
             <motion.div 
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
               className="absolute inset-0 border border-accent/40 rounded-full border-dashed group-hover:border-accent transition-colors"
             ></motion.div>
-            <div className="text-center flex flex-col items-center">
-              <Sparkles className="w-12 h-12 text-accent mb-2 animate-pulse group-hover:scale-125 transition-transform" />
-              <p className={`text-[10px] font-black ${cssUppercase} tracking-[0.2em] text-accent`}>{t.hero.badge}</p>
+            <div className="text-center flex flex-col items-center px-2">
+              <Sparkles className="w-9 h-9 lg:w-12 lg:h-12 text-accent mb-1 lg:mb-2 animate-pulse group-hover:scale-125 transition-transform" />
+              <p className={`text-[9px] lg:text-[10px] font-black ${cssUppercase} tracking-[0.15em] lg:tracking-[0.2em] text-accent leading-tight`}>{t.hero.badge}</p>
             </div>
           </motion.div>
         </div>
@@ -718,6 +727,25 @@ export default function App() {
                 {t.about.readMore}
               </motion.button>
             </motion.div>
+
+            <div className="relative w-full lg:hidden mt-4">
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="relative z-10"
+              >
+                <div className="absolute -inset-2 border-2 border-accent/30 transform rotate-3 -z-10"></div>
+                <div className="h-[280px] sm:h-[360px] w-full overflow-hidden rounded-sm shadow-2xl relative bg-primary/20">
+                  <img 
+                    alt="Professional Soccer Player" 
+                    className="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                    src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1000&auto=format&fit=crop"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+              </motion.div>
+            </div>
 
             <div className="relative h-full hidden lg:block">
               <motion.div 
@@ -791,8 +819,8 @@ export default function App() {
       {/* Network Section */}
       <section id="network" className="min-h-screen flex flex-col bg-primary overflow-hidden scroll-mt-24">
         <div className="flex-grow flex flex-col px-6 md:px-20 pt-16 md:pt-20 pb-16 md:pb-20 min-h-0">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-10 md:mb-12">
-            <div className="max-w-3xl">
+          <div className="flex flex-col md:flex-row justify-between items-stretch md:items-end gap-6 md:gap-8 mb-10 md:mb-12">
+            <div className="max-w-3xl w-full min-w-0">
               <h2 className={`text-4xl md:text-7xl font-black ${cssUppercase} ${displayLead} ${displayTrack}`}>
                 {t.network.title}<br /><span className="text-accent">{t.network.subtitle}</span>
               </h2>
@@ -805,9 +833,9 @@ export default function App() {
               onClick={() => setView("team")}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className={`bg-accent text-primary px-10 py-4 rounded-full font-black text-xs ${cssUppercase} shadow-2xl shadow-accent/20 hover:bg-white transition-all duration-300 flex items-center gap-3 animate-pulse-glow whitespace-nowrap`}
+              className={`bg-accent text-primary px-8 sm:px-10 py-4 rounded-full font-black text-[10px] sm:text-xs ${cssUppercase} shadow-2xl shadow-accent/20 hover:bg-white transition-all duration-300 flex items-center justify-center gap-2 sm:gap-3 animate-pulse-glow text-center shrink-0 w-full md:w-auto whitespace-normal sm:whitespace-nowrap leading-tight`}
             >
-              {t.network.meetTeam} <ArrowRight className="w-5 h-5" />
+              {t.network.meetTeam} <ArrowRight className="w-5 h-5 shrink-0" />
             </motion.button>
           </div>
 
@@ -839,10 +867,10 @@ export default function App() {
       </section>
 
       {/* Footer */}
-      <footer id="contact" className="min-h-screen flex flex-col justify-center bg-white text-primary py-24 px-6 md:px-20 scroll-mt-24">
-        <div className="flex flex-col md:flex-row justify-between items-start gap-16 md:gap-32 mb-6 md:mb-8">
-          <div className="max-w-4xl">
-            <h2 className={`text-5xl md:text-[8rem] font-black ${cssUppercase} ${displayLead} ${displayTrack}`}>
+      <footer id="contact" className="min-h-0 md:min-h-screen flex flex-col justify-center bg-white text-primary py-16 sm:py-20 md:py-24 px-6 md:px-20 scroll-mt-24">
+        <div className="flex flex-col md:flex-row justify-between items-start gap-12 md:gap-32 mb-6 md:mb-8">
+          <div className="max-w-4xl w-full min-w-0">
+            <h2 className={`text-[clamp(2rem,10vw,4.5rem)] sm:text-5xl md:text-[8rem] font-black ${cssUppercase} ${displayLead} ${displayTrack} break-words`}>
               {t.contact.title}
             </h2>
             <motion.button 
@@ -901,9 +929,9 @@ export default function App() {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8 border-t border-primary/10 pt-16 text-[11px] font-black uppercase tracking-[0.4em]">
-          <p>ELE<span className="text-accent">V</span>ARE SPORTS MANAGEMENT © 2026</p>
-          <div className="flex gap-16">
+        <div className="flex flex-col sm:flex-row sm:flex-wrap justify-between items-start sm:items-center gap-6 sm:gap-8 border-t border-primary/10 pt-10 md:pt-16 text-[10px] sm:text-[11px] font-black uppercase tracking-[0.25em] sm:tracking-[0.4em]">
+          <p className="max-w-full">ELE<span className="text-accent">V</span>ARE SPORTS MANAGEMENT © 2026</p>
+          <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 sm:gap-8 md:gap-16">
             <a href="#" className="hover:text-accent transition-colors duration-300">Privacy Policy</a>
             <a href="#" className="hover:text-accent transition-colors duration-300">Terms & Conditions</a>
           </div>
@@ -917,26 +945,26 @@ export default function App() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-primary/95 backdrop-blur-2xl"
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-primary/95 backdrop-blur-2xl overflow-y-auto"
           >
             <motion.div 
               initial={{ scale: 0.95, y: 30, opacity: 0 }}
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.95, y: 30, opacity: 0 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="bg-white w-full max-w-3xl rounded-[3rem] overflow-hidden shadow-[0_0_100px_rgba(0,242,242,0.15)] relative"
+              className="bg-white w-full max-w-3xl rounded-[2rem] sm:rounded-[3rem] overflow-hidden shadow-[0_0_100px_rgba(0,242,242,0.15)] relative my-6 sm:my-8"
             >
               <motion.button 
                 onClick={() => setIsContactModalOpen(false)}
                 whileHover={{ rotate: 90, scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                className="absolute top-10 right-10 text-primary hover:text-accent transition-all duration-300 z-10"
+                className="absolute top-4 right-4 sm:top-8 sm:right-8 md:top-10 md:right-10 text-primary hover:text-accent transition-all duration-300 z-10"
               >
-                <X className="w-10 h-10" />
+                <X className="w-8 h-8 sm:w-10 sm:h-10" />
               </motion.button>
 
-              <div className="p-12 md:p-20">
-                <h3 className={`text-5xl md:text-7xl font-black ${cssUppercase} ${displayTrack} text-primary mb-10 ${modalHeadLead}`}>
+              <div className="p-6 sm:p-12 md:p-20">
+                <h3 className={`text-3xl sm:text-5xl md:text-7xl font-black ${cssUppercase} ${displayTrack} text-primary mb-6 sm:mb-10 ${modalHeadLead}`}>
                   {t.contact.modalTitle} <span className="text-accent italic">{t.contact.modalSubtitle}</span>
                 </h3>
                 
