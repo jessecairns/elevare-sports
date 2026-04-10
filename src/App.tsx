@@ -245,6 +245,11 @@ export default function App() {
     });
   }, [view, pendingHomeSection]);
 
+  useEffect(() => {
+    if (view !== "team") return;
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [view]);
+
   // Clicking the hero badge navigates away while the pointer is still "over" the
   // badge; unmounting skips mouseleave, so isBadgeHovered would stay true.
   useEffect(() => {
@@ -281,7 +286,6 @@ export default function App() {
     if (itemId === "team") {
       e.preventDefault();
       setView("team");
-      window.scrollTo({ top: 0, behavior: "smooth" });
       return;
     }
     if (itemId === "about" || itemId === "services" || itemId === "network") {
